@@ -67,7 +67,7 @@ fn main() {
     }
     let both_integer = Point { x: 5, y: 10 };
     let both_float = Point { x: 1.0, y: 4.0 };
-    let integer_and_float = dbg!(Point { x: 5, y: 4.0 });
+    let integer_and_float = dbg!(Point { x: 5, y: 4.5 });
     let integer_and_string = dbg!(Point { x: 5, y: "fred".to_string()});
 }
 
