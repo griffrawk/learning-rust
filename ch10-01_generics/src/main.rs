@@ -108,8 +108,8 @@ fn largest_char(list: &[char]) -> char {
 fn largest<T>(list: &[T]) -> T {    // function largest is generic over some type T. This function has one parameter named list, which is a slice of values of type T. The largest function will return a value of the same type T.
     let mut largest = list[0];
     for &item in list.iter() {
-        if item > largest {     // doesnt know how to apply > for all types repd by T
-            largest = item;
+        if item > largest {     // doesnt know yet how to apply > for all types repd by T
+            largest = item;     // will need to read about traits!
         }
     }
     largest
