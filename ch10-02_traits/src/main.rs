@@ -16,6 +16,7 @@ fn main() {
         pub content: String,
     }
     impl Periodical {               // methods not defined by trait
+        fn rollback() {}
     } 
 
 
