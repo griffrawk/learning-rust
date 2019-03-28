@@ -1,4 +1,15 @@
 #[allow(dead_code)]
+
+/// random function
+pub fn foo() {}
+
+/// A structure of Bolex, which isn't a misspelling, but an old brand of movie camera
+pub struct Bolex {
+    pub public_var: String,
+    private_var: String,
+    pub public_number: i32,
+}
+
 fn main() {
     println!("Traits");
 
@@ -54,6 +65,8 @@ fn main() {
     // trait as argument. the fn is not tied (impl'd) to specific struct but will only accept
     // structs impl Summary
     // pub fn notify(item: impl Summary) {                  // the sugary version or ...
+
+    /// notify is a function
     pub fn notify<T: Summary>(item: T) {                    // as a trait bound
         println!("Breaking news! {}", item.summarize());    // item.summarize can be diff depp on impl
     }
