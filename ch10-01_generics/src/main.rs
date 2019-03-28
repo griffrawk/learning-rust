@@ -103,9 +103,8 @@ fn largest_char(list: &[char]) -> char {
     largest
 }
 
-/*
 // fn for 10-5
-fn largest<T>(list: &[T]) -> T {    // function largest is generic over some type T. This function has one parameter named list, which is a slice of values of type T. The largest function will return a value of the same type T.
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {    // function largest is generic over some type T. This function has one parameter named list, which is a slice of values of type T. The largest function will return a value of the same type T. Using PartialOrd allows types T that impl it to be compared, and Copy trait allows types T that are copyable
     let mut largest = list[0];
     for &item in list.iter() {
         if item > largest {     // doesnt know yet how to apply > for all types repd by T
@@ -114,4 +113,3 @@ fn largest<T>(list: &[T]) -> T {    // function largest is generic over some typ
     }
     largest
 }
-*/

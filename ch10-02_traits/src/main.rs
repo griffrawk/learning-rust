@@ -6,20 +6,9 @@ fn main() {
         fn summarize_author(&self) -> String;
 
         fn summarize(&self) -> String {         // default summarize fn for trait
-        format!("(Read more from {}...)", self.summarize_author())
+            format!("(Read more from {}...)", self.summarize_author())
         }
     }
-
-    pub struct Periodical {
-        pub title: String,
-        pub author: String,
-        pub content: String,
-    }
-    impl Periodical {               // methods not defined by trait
-        fn rollback() {}
-    } 
-
-
 
     pub struct Book {
         pub title: String,
@@ -62,6 +51,13 @@ fn main() {
         }
     }
 
+    // trait as argument. the fn is not tied (impl'd) to specific struct but will only accept
+    // structs impl Summary
+    // pub fn notify(item: impl Summary) {                  // the sugary version or ...
+    pub fn notify<T: Summary>(item: T) {                    // as a trait bound
+        println!("Breaking news! {}", item.summarize());    // item.summarize can be diff depp on impl
+    }
+
     let tweet = Tweet {
         username: String::from("horse_ebooks"),
         content: String::from("of course, as you probably already know, people"),
@@ -85,4 +81,11 @@ fn main() {
         hockey team in the NHL."),
     };
     println!("New article available! {}", article.summarize());
+
+    // use the notify fn, which only works for structs impl Summary trait
+    notify(book);
+    notify(tweet);
+    notify(article);
+
+
 }
