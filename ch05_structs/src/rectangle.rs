@@ -25,14 +25,18 @@ impl Rectangle {
 }
 
 // Unit tests
-#[test]
-fn test1() {
-    let rect1 = Rectangle { width: 30.0, height: 50.0 };
-    assert_eq!(rect1.area(), 1500.0);
-}
+#[cfg(test)]
+mod tests {
+    use super::Rectangle;
+    #[test]
+    fn test1() {
+        let rect1 = Rectangle { width: 30.0, height: 50.0 };
+        assert_eq!(rect1.area(), 1500.0);
+    }
 
-#[test]
-fn test2() {
-    let rect1 = Rectangle { width: 3.0, height: 5.0 };
-    assert_eq!(rect1.area(), 15.0, "Oh no what a disaster. The laws of the universe have been violated.");
+    #[test]
+    fn test2() {
+        let rect1 = Rectangle { width: 3.0, height: 5.0 };
+        assert_eq!(rect1.area(), 15.0, "Oh no what a disaster. The laws of the universe have been violated.");
+    }
 }
